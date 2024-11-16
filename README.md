@@ -98,6 +98,25 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
     
 
 
+
+    
+![png](output_6_1.png)
+    
+
+
+
+
+
+    <matplotlib.image.AxesImage at 0x12e656240>
+
+
+
+
+    
+![png](output_6_3.png)
+    
+
+
 # Question 3
 
  The **Median filter** is commonly used to reduce noise while preserving edges, specially for images with salt and pepper noise.
@@ -112,6 +131,12 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
     plt.ylabel("Frequency")
     plt.show()
 ```
+
+
+    
+![png](output_8_0.png)
+    
+
 
 # Question 4
 
@@ -155,6 +180,12 @@ plt.show()
 
 ```
 
+
+    
+![png](output_10_0.png)
+    
+
+
 # Question 5
 
 
@@ -184,6 +215,31 @@ plt.show()
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
 ```
+
+
+    
+![png](output_12_0.png)
+    
+
+
+
+    
+![png](output_12_1.png)
+    
+
+
+
+
+
+    <matplotlib.image.AxesImage at 0x12e7d79b0>
+
+
+
+
+    
+![png](output_12_3.png)
+    
+
 
 # Question 6
 
@@ -219,6 +275,25 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
     plt.imshow(cv2.cvtColor(xray_stretched, cv2.COLOR_BGR2RGB))
 ```
 
+
+    
+![png](output_15_0.png)
+    
+
+
+
+
+
+    <matplotlib.image.AxesImage at 0x12e89ba70>
+
+
+
+
+    
+![png](output_15_2.png)
+    
+
+
 # Question 10
 
 
@@ -240,6 +315,25 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
     plt.title('Blurred Image')
     plt.imshow(cv2.cvtColor(blur_image, cv2.COLOR_BGR2RGB))
 ```
+
+
+    
+![png](output_17_0.png)
+    
+
+
+
+
+
+    <matplotlib.image.AxesImage at 0x12e898740>
+
+
+
+
+    
+![png](output_17_2.png)
+    
+
 
 
 ```python
