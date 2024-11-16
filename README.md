@@ -48,13 +48,13 @@ In this part `Q1` and `Q1_1` are same images but with different contrast, the hi
 
 
     
-![png](output_3_0.png)
+![png](images/output_3_0.png)
     
 
 
 
     
-![png](output_3_1.png)
+![png](images/output_3_1.png)
     
 
 
