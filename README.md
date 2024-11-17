@@ -107,7 +107,7 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
 
 
 
-    <matplotlib.image.AxesImage at 0x12e656240>
+
 
 
 
@@ -231,7 +231,7 @@ plt.show()
 
 
 
-    <matplotlib.image.AxesImage at 0x12e7d79b0>
+
 
 
 
@@ -284,7 +284,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-    <matplotlib.image.AxesImage at 0x12e89ba70>
+
 
 
 
@@ -325,7 +325,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-    <matplotlib.image.AxesImage at 0x12e898740>
+
 
 
 
