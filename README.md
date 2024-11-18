@@ -10,8 +10,11 @@ import numpy as np
 ```
 
 # Question 1
-- ### Comparing histogram of twp different images
+- ### Comparing histogram of two different images
 In this part `Q1` and `Q1_1` are same images but with different contrast, the histogram shown bellow compares the  pixel intensity of these images. It can be said that increasing the contrast pushes pixel intensities toward the extremes. This results in a histogram with more pixels at the lower and higher ends of the intensity scale and fewer in the middle. 
+- ### Pros and Cons of histograms
+Changes in contrast are easily noticeable in histograms as they show how pixel intensities are spread.
+While a histogram might indicate that contrast has changed, it won’t show if this change enhances or reduces image detail effectively. 
 
 
 
@@ -62,10 +65,12 @@ In this part `Q1` and `Q1_1` are same images but with different contrast, the hi
 By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differences in brightness and contrast, revealing how pixel intensities vary across images.
 
 # Question 2
+- ### Compression
+**Contrast stretching** is a straightforward method for enhancing an image’s dynamic range, **gamma correction** provides a more perceptually accurate approach for brightness adjustment
 
 
 ```python
-    img = cv2.imread("images/Q2.jpg", 0)
+    img = cv2.imread("images/Q2.jpg", 1)
     mean = np.mean(img)
 
     gamma_1 = math.log(0.5 * 255) / math.log(mean)
@@ -75,6 +80,12 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
     img_gamma1 = np.power(img, gamma_1).clip(0, 255).astype(np.uint8)
     img_gamma2 = np.power(img, gamma_2).clip(0, 255).astype(np.uint8)
     img_gamma3 = np.power(img, gamma_3).clip(0, 255).astype(np.uint8)
+    
+    xp = [0, 64, 128, 192, 255]
+    fp = [0, 16, 128, 240, 255]
+    x = np.arange(256)
+    table = np.interp(x, xp, fp).astype('uint8')
+    img_stretched = cv2.LUT(img, table)
     
     plt.axis('off')
     plt.title('Gamma effect (0.5)')
@@ -87,9 +98,16 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
     plt.imshow(cv2.cvtColor(img_gamma2, cv2.COLOR_BGR2RGB))
     
     plt.show()
+    
     plt.axis('off')
     plt.title('Gamma effect (0.75)')
     plt.imshow(cv2.cvtColor(img_gamma3, cv2.COLOR_BGR2RGB))
+    
+    plt.show()
+    
+    plt.axis('off')
+    plt.title('Contrast Stretching')
+    plt.imshow(cv2.cvtColor(img_stretched, cv2.COLOR_BGR2RGB))
 ```
 
 
@@ -105,15 +123,21 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
 
 
 
+    
+![png](output_6_2.png)
+    
 
 
-    <matplotlib.image.AxesImage at 0x12ee102c0>
+
+
+
+    <matplotlib.image.AxesImage at 0x12effc290>
 
 
 
 
     
-![png](output_6_3.png)
+![png](output_6_4.png)
     
 
 
@@ -224,7 +248,7 @@ plt.show()
 
 
 
-    <matplotlib.image.AxesImage at 0x12e7051f0>
+    <matplotlib.image.AxesImage at 0x12fcf75c0>
 
 
 
@@ -246,7 +270,7 @@ High-pass filters are used to enhance the high-frequency components of an image.
 
 - #### What Problem Does Histogram Clipping Solve?
 
-Clipping helps prevent noise and unnatural-looking parts in the image. It keeps contrast enhancement from going too far, making the image look balanced and less noisy.
+Histogram clipping helps control the amount of contrast added during histogram stretching. in stretching our image looks too bright in some areas, clipping limits this kind of effects and make the image to look more natural.
 
 
 ```python
@@ -277,7 +301,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-    <matplotlib.image.AxesImage at 0x12e61a270>
+    <matplotlib.image.AxesImage at 0x13a9a5910>
 
 
 
@@ -318,7 +342,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-    <matplotlib.image.AxesImage at 0x12eca4d10>
+    <matplotlib.image.AxesImage at 0x13aa10a10>
 
 
 
