@@ -107,7 +107,7 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
 
 
 
-
+    <matplotlib.image.AxesImage at 0x12ee102c0>
 
 
 
@@ -148,25 +148,23 @@ img_ref = cv2.imread('images/Q4_ref.jpg')
 
 def calculate_cdf(hist):
     cdf = np.cumsum(hist)
-    cdf_normalized = cdf * 255 / cdf[-1]  # Normalize to range [0, 255]
+    cdf_normalized = cdf * 255 / cdf[-1]  # Normalize 
     return cdf_normalized
 
 
-# Calculate histograms and CDFs for input and reference images
+
 hist_input = cv2.calcHist([img_input], [0], None, [256], [0, 256])
 cdf_input = calculate_cdf(hist_input)
 
 hist_ref = cv2.calcHist([img_ref], [0], None, [256], [0, 256])
 cdf_ref = calculate_cdf(hist_ref)
 
-# Create a mapping from the input image to the reference image
 mapping = np.zeros(256)
 for i in range(256):
     # Find the closest match in the reference CDF
     diff = np.abs(cdf_ref - cdf_input[i])
     mapping[i] = np.argmin(diff)
 
-# Apply the mapping to create the matched image
 matched_image = np.zeros_like(img_input)
 for i in range(img_input.shape[0]):
     for j in range(img_input.shape[1]):
@@ -209,11 +207,6 @@ plt.show()
     plt.axis('off')
     plt.title('Equalized Darkened X-ray')
     plt.imshow(cv2.cvtColor(darkened_equalized_image, cv2.COLOR_BGR2RGB))
-    # cv2.imshow("Equalized X-ray", equalized_image)
-    # cv2.imshow("Darkened X-ray", darkened_image)
-    # cv2.imshow("Equalized Darkened X-ray", darkened_equalized_image)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
 ```
 
 
@@ -231,7 +224,7 @@ plt.show()
 
 
 
-
+    <matplotlib.image.AxesImage at 0x12e7051f0>
 
 
 
@@ -284,7 +277,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-
+    <matplotlib.image.AxesImage at 0x12e61a270>
 
 
 
@@ -303,7 +296,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
     sharp_image = cv2.filter2D(img, -1, kernel)
     
     img_2 = cv2.imread('images/Q10_2.jpg', 1)
-    blur_image = cv2.medianBlur(img, 5)
+    blur_image = cv2.medianBlur(img_2, 5)
 
     plt.axis('off')
     plt.title('Sharpened Image')
@@ -325,7 +318,7 @@ Clipping helps prevent noise and unnatural-looking parts in the image. It keeps 
 
 
 
-
+    <matplotlib.image.AxesImage at 0x12eca4d10>
 
 
 
