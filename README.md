@@ -131,7 +131,7 @@ By examining the histograms of `Q1`, `Q1_2`, and `Q1_3`, we can observe differen
 
 
 
-    <matplotlib.image.AxesImage at 0x12effc290>
+
 
 
 
@@ -248,7 +248,7 @@ plt.show()
 
 
 
-    <matplotlib.image.AxesImage at 0x12fcf75c0>
+
 
 
 
@@ -301,7 +301,7 @@ Histogram clipping helps control the amount of contrast added during histogram s
 
 
 
-    <matplotlib.image.AxesImage at 0x13a9a5910>
+
 
 
 
@@ -342,7 +342,7 @@ Histogram clipping helps control the amount of contrast added during histogram s
 
 
 
-    <matplotlib.image.AxesImage at 0x13aa10a10>
+
 
 
 
